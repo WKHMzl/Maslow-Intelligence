@@ -1,0 +1,1838 @@
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    padding-top: 48px; /* Altura do header-fixo */
+}
+
+/* Header Styles */
+.header-fixo {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.logo-img {
+    height: 24px;
+    width: auto;
+    margin-right: 12px;
+}
+
+.logo-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-lista {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.2s ease;
+    position: relative;
+    padding: 8px 0;
+}
+
+.nav-link:hover {
+    color: #0066cc;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #0066cc;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1;
+}
+
+.btn-secundario {
+    background-color: #fff;
+    color: #0066cc;
+    border: 1px solid #0066cc;
+    padding: 8px 16px;
+}
+
+.btn-secundario:hover {
+    background-color: #0066cc;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.btn-primario {
+    background-color: #0066cc;
+    color: #fff;
+    border: 1px solid #0066cc;
+}
+
+.btn-primario:hover {
+    background-color: #0052a3;
+    border-color: #0052a3;
+    transform: translateY(-1px);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.hamburger-icon {
+    width: 24px;
+    height: 2px;
+    background-color: #333;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+    left: 0;
+}
+
+.hamburger-icon::before {
+    top: -8px;
+}
+
+.hamburger-icon::after {
+    top: 8px;
+}
+
+.menu-toggle.ativo .hamburger-icon {
+    background-color: transparent;
+}
+
+.menu-toggle.ativo .hamburger-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.menu-toggle.ativo .hamburger-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+/* ======================================================= */
+/* ESTILO UNIFICADO E FINAL PARA TODAS AS ETIQUETAS DO SITE */
+/* ======================================================= */
+
+/* Seleciona a etiqueta 'span' nos títulos E os rótulos nos cards do carrossel */
+.secao-problema-carrossel .titulo-secao span,
+.secao-metodologia .titulo-secao span,
+.secao-resultados .titulo-secao span,
+.secao-servicos-objetivo .objetivo-titulo-bloco span,
+.secao-arsenal .arsenal-titulo-wrapper span,
+.secao-parceria .parceria-titulo-wrapper span,
+.secao-sobre-nos .sobre-nos-titulo-wrapper span,
+.problema-card .card-rotulo { /* <-- ADICIONADO AQUI */
+    display: inline-block;
+    
+    /* Estilo "vazado" aplicado a todos */
+    background-color: transparent;
+    border: 1px solid #0066cc;
+    color: #0066cc;
+    
+    /* Estilos de tamanho e espaçamento consistentes */
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px; /* Mantendo um tamanho menor para os rótulos dos cards */
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: #f8f9fa;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.hero-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.hero-text {
+    text-align: left;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.2;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.texto-grande {
+    font-size: 20px;
+    margin-bottom: 32px;
+    line-height: 1.6;
+    color: #f0f0f0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* ================================== */
+/* SEÇÃO DE LOGOS                       */
+/* ================================== */
+.secao-logos {
+    background-color: #f8f9fa;
+    padding: 32px 0;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.logos-titulo {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #b1b1b1;
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+}
+
+.logo-ticker {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.logo-ticker-track {
+    display: flex;
+    width: calc(150px * 16 + 40px * 16);
+    animation: scroll 40s linear infinite;
+}
+
+.logo-ticker-track:hover {
+    animation-play-state: paused;
+}
+
+.logo-ticker-track img {
+    height: 40px;
+    width: auto;
+    margin: 0 40px;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-ticker-track img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-150px * 8 - 40px * 8));
+    }
+}
+
+/* ================================== */
+/* SEÇÃO DE PROBLEMAS - CARROSSEL       */
+/* ================================== */
+.secao-problema-carrossel {
+    padding: 120px 0;
+    background-color: #fff;
+}
+
+.secao-problema-carrossel .container {
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-secao {
+    text-align: center;
+    margin-bottom: 80px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.titulo-secao h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.titulo-secao p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.carrossel-container {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carrossel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 40px;
+    cursor: grab;
+}
+
+.carrossel-track.dragging {
+    cursor: grabbing;
+}
+.carrossel-track.dragging .problema-card {
+    user-select: none;
+}
+.carrossel-track.dragging .problema-card a {
+    pointer-events: none;
+}
+
+/* MUDANÇA #1: Adicionado borda e sombra para melhorar a UI */
+.problema-card {
+    min-width: 100%;
+    text-align: center;
+    padding: 40px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    position: relative;
+    flex-shrink: 0;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.card-rotulo {
+    display: inline-block;
+    background-color: #0066cc;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.problema-card h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 24px;
+    line-height: 1.3;
+}
+
+.problema-card p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.problema-card p strong {
+    color: #0066cc;
+    font-weight: 600;
+}
+
+/* Navegação do Carrossel */
+.carrossel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.carrossel-btn {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: #666;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.carrossel-btn:hover {
+    background-color: #0066cc;
+    color: #fff;
+    border-color: #0066cc;
+    transform: translateY(-2px);
+}
+
+.carrossel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    background-color: #f8f9fa;
+    color: #666;
+    border-color: #e9ecef;
+}
+
+/* Indicadores (Dots) */
+.carrossel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.carrossel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+.carrossel-dot.ativo {
+    background-color: #0066cc;
+    transform: scale(1.2);
+}
+
+.carrossel-dot:hover {
+    background-color: #0066cc;
+    opacity: 0.7;
+}
+
+/* ================================== */
+/* RESPONSIVIDADE                       */
+/* ================================== */
+@media (max-width: 992px) {
+    .titulo-secao h2 {
+        font-size: 32px;
+    }
+    
+    .problema-card h3 {
+        font-size: 24px;
+    }
+    
+    .problema-card p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navegacao {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        position: fixed;
+        top: 48px;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 24px;
+        transform: translateY(-150%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navegacao.ativo {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-lista {
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 18px;
+        padding: 12px 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
+    .navegacao .btn-secundario {
+        width: 100%;
+        max-width: 280px;
+        padding: 12px 24px;
+    }
+
+    .hero-content {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+        max-width: 90%;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    
+    .texto-grande {
+        font-size: 18px;
+    }
+    
+    .btn-primario {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #fff;
+        padding: 14px 28px;
+    }
+
+    .btn-primario:hover {
+        background-color: #f0f0f0;
+        color: #000;
+        border-color: #f0f0f0;
+    }
+
+    /* Seção de Problemas - Mobile */
+    .secao-problema-carrossel {
+        padding: 80px 0;
+    }
+
+    .titulo-secao {
+        margin-bottom: 40px;
+        padding: 0 16px;
+    }
+
+    .titulo-secao h2 {
+        font-size: 28px;
+    }
+    
+    .titulo-secao p {
+        font-size: 16px;
+    }
+
+    /* MUDANÇA #2: Ajustes para o carrossel no mobile */
+    .carrossel-container {
+        width: 100%;
+    }
+    .carrossel-track {
+        gap: 24px;
+    }
+    .problema-card {
+        padding: 32px 24px;
+        min-width: 100%;
+        flex: 0 0 100%;
+    }
+    .carrossel-nav {
+        display: none;
+    }
+    /* Fim da Mudança #2 */
+
+    .carrossel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    /* Faixa de Logos Mobile */
+    .logos-titulo {
+        font-size: 14px;
+    }
+
+    .logo-ticker-track img {
+        height: 30px;
+        margin: 0 20px;
+    }
+    
+    .logo-ticker-track {
+        width: calc(150px * 16 + 20px * 16);
+        animation-duration: 30s;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-150px * 8 - 20px * 8));
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    
+    .texto-grande {
+        font-size: 16px;
+    }
+
+    .titulo-secao h2 {
+        font-size: 24px;
+    }
+
+    .problema-card h3 {
+        font-size: 20px;
+    }
+
+    .problema-card p {
+        font-size: 15px;
+    }
+}
+/* ============================================= */
+/* ANIMAÇÃO DE DICA DE ARRASTE (NOVO) */
+/* ============================================= */
+
+.swipe-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    color: #0066cc;
+    font-size: 32px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 16px;
+    border-radius: 50%;
+    pointer-events: none; /* Impede que o ícone bloqueie o clique */
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.5s ease;
+}
+
+.swipe-indicator.visible {
+    opacity: 1;
+    /* Aplica a animação quando a classe .visible é adicionada */
+    animation: swipe-animation 2s ease-in-out 1 forwards;
+    animation-delay: 0.5s; /* Espera meio segundo para começar */
+}
+
+.swipe-indicator.hidden {
+    opacity: 0; /* Para fazer o ícone desaparecer suavemente */
+}
+
+/* Animação de arraste */
+@keyframes swipe-animation {
+    0% {
+        transform: translate(-50%, -50%) translateX(0px);
+        opacity: 0;
+    }
+    20% {
+        transform: translate(-50%, -50%) translateX(0px);
+        opacity: 1;
+    }
+    80% {
+        transform: translate(-50%, -50%) translateX(60px);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) translateX(60px);
+        opacity: 0;
+    }
+}
+/* ========================================= */
+/* SEÇÃO DE METODOLOGIA (VERSÃO FINAL CORRIGIDA) */
+/* ========================================= */
+.secao-metodologia {
+    padding: 120px 0;
+    background-color: #f8f9fa; /* Fundo sutil para a seção */
+}
+
+/* Container que estabelece o layout flex de duas colunas */
+.metodologia-conteudo {
+    display: flex;
+    align-items: flex-start; /* Alinha as colunas pelo topo */
+    gap: 80px; /* Espaçamento generoso entre as colunas */
+}
+
+/* --- Coluna da Esquerda --- */
+.metodologia-coluna-esquerda {
+    flex: 1 1 40%; /* Ocupa 40% da largura */
+    display: flex;
+    flex-direction: column; /* Título e imagem um sobre o outro */
+    gap: 40px;
+}
+
+.metodologia-coluna-esquerda .titulo-secao {
+    text-align: left; /* Título alinhado à esquerda */
+}
+
+.metodologia-coluna-esquerda .titulo-secao h2 {
+    font-size: 40px;
+    color: #222;
+    margin-top: 16px;
+}
+
+.metodologia-coluna-esquerda .subtitulo-secao {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 16px;
+}
+
+.metodologia-imagem-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Borda sutil na imagem */
+}
+
+/* --- Coluna da Direita --- */
+.metodologia-coluna-direita {
+    flex: 1 1 60%; /* Ocupa 60% da largura */
+    display: flex;
+    flex-direction: column; /* Empilha os cards dos níveis */
+    gap: 24px;
+}
+
+.nivel-descricao {
+    background-color: #ffffff;
+    padding: 24px 24px 24px 80px; /* Espaço à esquerda para o número */
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    position: relative; /* Necessário para o posicionamento do número */
+    overflow: hidden; /* Garante que elementos filhos respeitem a borda */
+    transition: all 0.3s ease;
+}
+
+.nivel-descricao:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: #0066cc;
+}
+
+/* MELHORIA DE DESIGN: Numeração dos Níveis */
+.nivel-descricao::before {
+    content: "0" counter(nivel);
+    counter-increment: nivel;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 48px;
+    font-weight: 700;
+    color: #e9ecef; /* Cor sutil para o número */
+    z-index: 1;
+}
+
+.secao-metodologia {
+    counter-reset: nivel; /* Inicia o contador */
+}
+
+.nivel-descricao h3 {
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+.nivel-descricao p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+    .metodologia-conteudo {
+        flex-direction: column; /* Empilha as colunas em telas menores */
+        gap: 40px;
+    }
+
+    .metodologia-coluna-esquerda .titulo-secao {
+        text-align: center; /* Centraliza o título no mobile */
+    }
+
+    .metodologia-imagem-container {
+        margin: 0 auto;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .secao-metodologia {
+        padding: 80px 0;
+    }
+
+    .metodologia-coluna-esquerda .titulo-secao h2 {
+        font-size: 32px;
+    }
+}
+
+/* ================================== */
+/* SEÇÃO DE RESULTADOS (VERSÃO MELHORADA) */
+/* ================================== */
+.secao-resultados {
+    padding: 120px 0;
+    background-color: #ffffff; /* Fundo branco para contraste com a seção anterior */
+}
+
+.secao-resultados .titulo-secao {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+}
+
+/* Container de duas colunas */
+.resultados-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+/* Coluna da Esquerda (Imagem) */
+.ciclo-imagem-container {
+    flex: 1 1 40%;
+    text-align: center;
+}
+
+.ciclo-imagem-container img {
+    max-width: 100%;
+    width: 380px; /* Aumenta um pouco a imagem do ciclo */
+    height: auto;
+}
+
+/* Coluna da Direita (Cards) */
+.ciclo-textos-container {
+    flex: 1 1 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* MELHORIA DE DESIGN: Novo estilo para os cards de resultado */
+.resultado-card {
+    background-color: #f8f9fa;
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start; /* Alinha ícone e texto pelo topo */
+    gap: 24px;
+    border: 1px solid transparent; /* Borda transparente para o hover */
+    transition: all 0.3s ease;
+}
+
+.resultado-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: #e0e0e0;
+}
+
+.resultado-icon {
+    font-size: 28px;
+    color: #0066cc; /* Cor de destaque azul para o ícone */
+    background-color: #e6f0ff; /* Fundo sutil para o ícone */
+    min-width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resultado-texto h4 {
+    font-size: 20px;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.resultado-texto p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+    .resultados-conteudo {
+        flex-direction: column; /* Empilha as colunas */
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .secao-resultados {
+        padding: 80px 0;
+    }
+
+    .resultado-card {
+        flex-direction: column; /* Ícone fica acima do texto */
+        align-items: center; /* Centraliza tudo no mobile */
+        text-align: center;
+        padding: 32px 24px;
+    }
+}
+
+/* ================================== */
+/* SEÇÃO DE RESULTADOS (VERSÃO MELHORADA) */
+/* ================================== */
+.secao-resultados {
+    padding: 120px 0;
+    background-color: #ffffff;
+}
+
+/* Container que estabelece o layout flex de duas colunas */
+.resultados-conteudo {
+    display: flex;
+    align-items: flex-start; /* Alinha as colunas pelo topo */
+    gap: 80px;
+}
+
+/* --- Coluna da Esquerda --- */
+.resultados-coluna-esquerda {
+    flex: 1 1 40%; /* Ocupa 40% da largura */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.resultados-coluna-esquerda .titulo-secao {
+    text-align: left;
+}
+
+.resultados-coluna-esquerda .titulo-secao h2 {
+    font-size: 40px;
+    color: #222;
+    margin-top: 16px;
+}
+
+.resultados-coluna-esquerda .subtitulo-secao {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 16px;
+}
+
+.ciclo-imagem-container img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+/* --- Coluna da Direita --- */
+.resultados-coluna-direita {
+    flex: 1 1 60%; /* Ocupa 60% da largura */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.resultado-card {
+    background-color: #f8f9fa;
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.resultado-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: #0066cc;
+}
+
+.resultado-icon {
+    font-size: 28px;
+    color: #0066cc;
+    background-color: #e6f0ff;
+    min-width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resultado-texto h4 {
+    font-size: 20px;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.resultado-texto p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+    .resultados-conteudo {
+        flex-direction: column; /* Empilha as colunas em telas menores */
+    }
+
+    .resultados-coluna-esquerda {
+        align-items: center; /* Centraliza o conteúdo da coluna esquerda */
+    }
+
+    .resultados-coluna-esquerda .titulo-secao {
+        text-align: center; /* Centraliza o texto no mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .secao-resultados {
+        padding: 80px 0;
+    }
+
+    .resultados-coluna-esquerda .titulo-secao h2 {
+        font-size: 32px;
+    }
+}
+
+/* ====================================================== */
+/* SEÇÃO DE SERVIÇOS POR OBJETIVO (CSS OTIMIZADO) */
+/* ====================================================== */
+
+section#servicos-objetivo {
+    padding: 120px 0;
+    background-color: #f8f9fa;
+}
+
+/* Container Grid Principal */
+section#servicos-objetivo .servicos-objetivo-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Força 2 colunas */
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Bloco do Título */
+section#servicos-objetivo .objetivo-titulo-bloco {
+    grid-column: 1 / -1; /* Força o título a ocupar as 2 colunas */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+section#servicos-objetivo .objetivo-titulo-bloco h2 {
+    font-size: 36px;
+    color: #222;
+    margin-bottom: 16px;
+}
+
+section#servicos-objetivo .objetivo-titulo-bloco p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Estilo dos Cards */
+section#servicos-objetivo .objetivo-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+section#servicos-objetivo .objetivo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+section#servicos-objetivo .card-header { margin-bottom: 24px; }
+section#servicos-objetivo .card-numero { position: absolute; top: -10px; right: 15px; font-size: 80px; font-weight: 700; color: #000; opacity: 0.05; }
+section#servicos-objetivo .card-icon { font-size: 40px; color: #0066cc; margin-bottom: 16px; }
+section#servicos-objetivo .objetivo-card h4 { font-size: 24px; color: #222; margin-bottom: 8px; }
+section#servicos-objetivo .card-tagline { font-size: 16px; color: #555; margin-bottom: 24px; font-style: italic; min-height: 48px; }
+section#servicos-objetivo .card-entregaveis { list-style: none; padding: 0; margin-bottom: 32px; text-align: left; flex-grow: 1; }
+section#servicos-objetivo .card-entregaveis li { font-size: 15px; color: #555; margin-bottom: 12px; padding-left: 24px; position: relative; line-height: 1.5; }
+section#servicos-objetivo .card-entregaveis li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #0066cc; position: absolute; left: 0; top: 3px; }
+section#servicos-objetivo .card-entregaveis li b { color: #333; font-weight: 600; }
+section#servicos-objetivo .objetivo-card .btn { width: 100%; }
+
+/* --- Responsividade Definitiva --- */
+@media (max-width: 992px) {
+    /* Altera o grid para ter apenas 1 coluna em telas de tablet e celular */
+    section#servicos-objetivo .servicos-objetivo-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    section#servicos-objetivo {
+        padding: 80px 0;
+    }
+}
+/* ============================================= */
+/* CORREÇÃO DO BOTÃO NA SEÇÃO DE SERVIÇOS (MOBILE) */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  /* Garante que o botão primário na seção de serviços seja sempre visível */
+  section#servicos-objetivo .objetivo-card .btn-primario {
+    background-color: #0066cc; /* Fundo azul */
+    color: #fff;              /* Texto branco */
+    border: 1px solid #0066cc; /* Borda azul */
+  }
+
+  /* Garante que o efeito hover também funcione corretamente */
+  section#servicos-objetivo .objetivo-card .btn-primario:hover {
+    background-color: #0052a3;
+    border-color: #0052a3;
+  }
+}
+
+/* ============================================= */
+/* SEÇÃO ARSENAL (DESIGN DA CAIXA EXPANDIDA MELHORADO) */
+/* ============================================= */
+
+.secao-arsenal {
+    padding: 120px 0;
+    background-color: #f8f9fa;
+}
+
+.secao-arsenal .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Título */
+.secao-arsenal .arsenal-titulo-wrapper {
+    text-align: center;
+    max-width: 800px;
+}
+
+.secao-arsenal .arsenal-titulo-wrapper h2 {
+    font-size: 36px;
+    color: #222;
+    margin-bottom: 16px;
+}
+.secao-arsenal .arsenal-titulo-wrapper p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Grid de Cards */
+.secao-arsenal .arsenal-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    width: 100%;
+}
+@media (min-width: 992px) {
+    .secao-arsenal .arsenal-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Estilo Base do Card */
+.secao-arsenal .arsenal-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.secao-arsenal .arsenal-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Cabeçalho Clicável */
+.secao-arsenal .arsenal-header {
+    background: none;
+    border: none;
+    width: 100%;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e9ecef; /* Separador visual */
+}
+.secao-arsenal .arsenal-card.ativo .arsenal-header {
+    border-bottom-color: transparent; /* Remove o separador quando aberto */
+}
+.secao-arsenal .header-icon {
+    font-size: 20px;
+    color: #0066cc;
+    margin-right: 16px;
+}
+.secao-arsenal .header-titulo {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Ícone de Expansão */
+.secao-arsenal .header-expand-icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+.secao-arsenal .header-expand-icon::before,
+.secao-arsenal .header-expand-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0066cc;
+    transition: transform 0.3s ease;
+    width: 14px;
+    height: 2px;
+}
+.secao-arsenal .header-expand-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+.secao-arsenal .arsenal-card.ativo .header-expand-icon {
+    transform: rotate(45deg);
+}
+
+/* Painel Expandido */
+.secao-arsenal .arsenal-painel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #f8faff; /* Um tom mais claro para destacar */
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-left: 1px solid #e9ecef;
+    border-right: 1px solid #e9ecef;
+}
+.secao-arsenal .arsenal-card.ativo .arsenal-painel {
+    border-bottom: 1px solid #e9ecef; /* Adiciona a borda inferior quando aberto */
+}
+
+/* Conteúdo do Painel */
+.secao-arsenal .painel-conteudo {
+    padding: 20px;
+}
+.secao-arsenal .painel-descricao {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+.secao-arsenal .painel-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.secao-arsenal .painel-lista li {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+}
+.secao-arsenal .painel-lista li::before {
+    content: "•"; /* Bullet point mais elegante */
+    color: #0066cc;
+    position: absolute;
+    left: 0;
+}
+.secao-arsenal .painel-lista li b {
+    font-weight: 600;
+    color: #333;
+}
+
+/* ============================================= */
+/* SEÇÃO PARCERIA ESTRATÉGICA */
+/* ============================================= */
+
+.secao-parceria {
+    padding: 120px 0;
+    background-color: #ffffff; /* Fundo branco para dar destaque */
+}
+.secao-parceria .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Título */
+.secao-parceria .parceria-titulo-wrapper {
+    text-align: center;
+    max-width: 800px;
+}
+
+.secao-parceria .parceria-titulo-wrapper h2 {
+    font-size: 36px;
+    color: #222;
+    margin-bottom: 16px;
+}
+.secao-parceria .parceria-titulo-wrapper p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Grid com os pilares da parceria */
+.secao-parceria .parceria-grid-valor {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 coluna em mobile */
+    gap: 24px;
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .secao-parceria .parceria-grid-valor {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablet */
+    }
+}
+.valor-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.valor-icon {
+    font-size: 32px;
+    color: #0066cc;
+    background-color: #e6f0ff;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.valor-card h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+    margin: 0;
+}
+.valor-card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+/* ======================================================= */
+/* CORREÇÃO DO BOTÃO NA SEÇÃO PARCERIA ESTRATÉGICA (MOBILE) */
+/* ======================================================= */
+
+@media (max-width: 768px) {
+  /* Garante que o botão primário na seção de parceria seja sempre visível */
+  .secao-parceria .btn-primario {
+    background-color: #0066cc; /* Fundo azul */
+    color: #fff;              /* Texto branco */
+    border: 1px solid #0066cc; /* Borda azul */
+  }
+
+  /* Garante que o efeito hover também funcione corretamente */
+  .secao-parceria .btn-primario:hover {
+    background-color: #0052a3;
+    border-color: #0052a3;
+  }
+}
+/* Bloco de Transformação */
+.secao-parceria .parceria-transformacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 24px;
+    width: 100%;
+    max-width: 800px;
+    flex-wrap: wrap; /* Permite quebrar em telas pequenas */
+}
+.transformacao-bloco {
+    text-align: center;
+}
+.transformacao-bloco h5 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+.transformacao-bloco.de h5 {
+    color: #d9534f; /* Vermelho para 'DE' */
+}
+.transformacao-bloco.para h5 {
+    color: #5cb85c; /* Verde para 'PARA' */
+}
+.transformacao-bloco p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+}
+.transformacao-seta {
+    font-size: 24px;
+    color: #0066cc;
+}
+@media (max-width: 500px) {
+    .transformacao-seta {
+        transform: rotate(90deg);
+    }
+}
+
+/* Botão CTA */
+.secao-parceria .parceria-cta {
+    text-align: center;
+}
+.secao-parceria .btn-primario {
+    padding: 16px 32px;
+    font-size: 16px;
+}
+
+/* ============================================= */
+/* SEÇÃO SOBRE NÓS (LAYOUT CORRIGIDO E ATUALIZADO) */
+/* ============================================= */
+
+.secao-sobre-nos {
+    padding: 120px 0;
+    background-color: #f8f9fa;
+}
+
+/* --- CORREÇÃO DE LAYOUT --- */
+/* Esta regra força o container a organizar seus filhos diretos
+   (o título e o conteúdo) em uma coluna vertical. */
+.secao-sobre-nos .container {
+    display: flex;
+    flex-direction: column; /* Organiza em coluna (um abaixo do outro) */
+    align-items: center;   /* Centraliza os blocos na página */
+    gap: 60px;             /* Cria um espaço entre o título e o conteúdo */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+/* --- FIM DA CORREÇÃO --- */
+
+/* Título */
+.secao-sobre-nos .sobre-nos-titulo-wrapper {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+.secao-sobre-nos .sobre-nos-titulo-wrapper h2 {
+    font-size: 36px;
+    color: #222;
+}
+
+/* Layout em duas colunas para o conteúdo (Filosofia e Princípios) */
+.secao-sobre-nos .sobre-nos-conteudo {
+    display: grid;
+    grid-template-columns: 1fr; /* Padrão de 1 coluna para mobile */
+    gap: 60px;
+    width: 100%;
+}
+@media (min-width: 992px) {
+    .secao-sobre-nos .sobre-nos-conteudo {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas para telas de desktop */
+        align-items: flex-start;
+    }
+}
+
+/* Estilo da coluna de texto (Filosofia) */
+.sobre-nos-coluna-texto h3,
+.sobre-nos-coluna-principios h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #0066cc;
+    display: inline-block;
+}
+.sobre-nos-coluna-texto p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 24px;
+}
+
+/* Estilo da coluna de princípios */
+.sobre-nos-coluna-principios {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.principio-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+.principio-icon {
+    font-size: 20px;
+    color: #0066cc;
+    background-color: #e6f0ff;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.principio-texto h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+.principio-texto p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+}
+/* ============================================= */
+/* SEÇÃO CTA FINAL */
+/* ============================================= */
+
+.secao-cta-final {
+    padding: 100px 0;
+    background-color: #0d1a2e; /* Fundo escuro para destaque e tom premium */
+    color: #ffffff;
+    text-align: center;
+}
+
+.secao-cta-final .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.secao-cta-final h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.secao-cta-final p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #e0e0e0; /* Cor de texto mais suave que o branco puro */
+    max-width: 650px;
+    margin-bottom: 40px;
+}
+
+.btn-cta-final {
+    display: inline-block;
+    padding: 16px 32px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #0066cc;
+    border: 2px solid transparent;
+}
+
+.btn-cta-final:hover {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* ============================================= */
+/* FOOTER (RODAPÉ) */
+/* ============================================= */
+
+.site-footer {
+    background-color: #0d1a2e; /* Mesmo fundo escuro do CTA para consistência */
+    color: #a0aec0; /* Tom de cinza claro para boa legibilidade */
+    padding: 80px 0 0 0;
+    font-size: 16px;
+}
+.site-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.site-footer .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 coluna em mobile */
+    gap: 40px;
+    padding-bottom: 60px;
+}
+@media (min-width: 768px) {
+    .site-footer .footer-grid {
+        /* Layout responsivo que se adapta, mas para 3 colunas, isso funciona bem */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+/* Coluna 1: Logo e Descrição */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+.footer-logo-img {
+    height: 28px;
+    filter: invert(1); /* Inverte a cor do logo para branco */
+}
+.footer-descricao {
+    line-height: 1.7;
+    max-width: 350px;
+}
+
+/* Coluna 2 e 3: Títulos e Listas */
+.footer-coluna h4 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+.footer-links, .footer-contato {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-links li, .footer-contato li {
+    margin-bottom: 16px;
+}
+.site-footer a {
+    color: #a0aec0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.site-footer a:hover {
+    color: #ffffff;
+}
+.footer-contato i {
+    margin-right: 8px;
+    width: 20px; /* Alinhamento dos ícones */
+}
+
+/* Social Media */
+.footer-social {
+    margin-top: 24px;
+}
+.footer-social a {
+    font-size: 24px;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+.footer-social a:hover {
+    transform: scale(1.1);
+}
+
+/* Barra Inferior */
+.footer-bottom {
+    border-top: 1px solid #2d3748; /* Linha sutil de separação */
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para telas pequenas */
+    gap: 16px;
+}
+.copyright {
+    margin: 0;
+}
+.voltar-ao-topo {
+    font-size: 14px;
+}
+.voltar-ao-topo i {
+    margin-left: 8px;
+}
+/* Adicione esta regra ao seu CSS do Footer */
+.footer-social {
+    display: flex; /* Garante que os ícones fiquem na mesma linha */
+    gap: 16px;     /* Adiciona um espaço entre os ícones */
+}
+
+/* Adicione estas regras ao final do seu CSS do Footer */
+
+/* Alinha o conteúdo dos links sociais (ícone + texto) */
+.footer-social a {
+    display: flex;       
+    align-items: center; 
+}
+
+/* Estiliza especificamente o número do WhatsApp */
+.whatsapp-numero {
+    font-size: 14px;  /* <<< Tamanho da fonte reduzido */
+    font-weight: 400; /* Peso da fonte mais leve */
+    margin-left: 8px; /* Espaço entre o ícone e o número */
+    margin-bottom: 0; /* Remove a margem padrão do parágrafo */
+    color: #a0aec0;    /* Usa a mesma cor dos outros links do rodapé */
+}
