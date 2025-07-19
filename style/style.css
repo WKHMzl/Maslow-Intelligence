@@ -298,21 +298,28 @@ body {
 }
 
 /* ================================== */
-/* SEÇÃO DE LOGOS                       */
+/* SEÇÃO DE LOGOS                     */
 /* ================================== */
 .secao-logos {
     background-color: #f8f9fa;
-    padding: 32px 0;
+    padding: 48px 0; /* Aumentei o padding para dar mais respiro */
     border-top: 1px solid #e9ecef;
     border-bottom: 1px solid #e9ecef;
 }
 
+/* NOVO - Garante que o título e o ticker fiquem em coluna */
+.secao-logos .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza ambos os itens horizontalmente */
+}
+
 .logos-titulo {
     text-align: center;
-    font-size: 16px;
+    font-size: 18px; /* Aumentei um pouco para mais destaque */
     font-weight: 500;
-    color: #b1b1b1;
-    margin-bottom: 24px;
+    color: #868e96; /* Cor um pouco mais suave */
+    margin-bottom: 32px; /* Aumentei a margem para separar do ticker */
     letter-spacing: 0.5px;
 }
 
@@ -326,7 +333,10 @@ body {
 
 .logo-ticker-track {
     display: flex;
-    width: calc(150px * 16 + 40px * 16);
+    /* O cálculo da largura é importante para a animação contínua */
+    /* (largura da imagem + margem) * número total de imagens */
+    /* Ajuste se o tamanho ou número de logos mudar */
+    width: calc(150px * 16); 
     animation: scroll 40s linear infinite;
 }
 
@@ -353,7 +363,8 @@ body {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-150px * 8 - 40px * 8));
+        /* A translação deve ser metade da largura total da track */
+        transform: translateX(calc(-150px * 8));
     }
 }
 
